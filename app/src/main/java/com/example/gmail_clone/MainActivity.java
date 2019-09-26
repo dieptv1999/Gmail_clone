@@ -26,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
         bar.setDisplayUseLogoEnabled(true);
         bar.setTitle("  Inbox");
         messages=new ArrayList<>();
-        for (int i=0;i<26;++i){
-            char c=(char)('A'+i);
-            messages.add(new Message(0,String.valueOf(c)+"durila.com","First 10 spots","contact1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","26/09/2019"));
+        for (char i='A';i<='Z';++i){
+            messages.add(new Message(0,String.valueOf(i)+"durila.com","First 10 spots","contact1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","26/09/2019"));
         }
         //messages.add(new Message(0,"Adurila.com","First 10 spots","contact1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","26/09/2019"));
         //messages.add(new Message(1,"Bdurila.com","First 10 spots","contact1aaaaaaaaaaaaaaaaaaaaa","26/09/2019"));

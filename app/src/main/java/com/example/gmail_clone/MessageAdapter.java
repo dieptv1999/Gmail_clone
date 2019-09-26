@@ -51,16 +51,35 @@ public class MessageAdapter extends BaseAdapter {
             holder.textDescription=convertView.findViewById(R.id.textDescription);
             holder.textTimestamp=convertView.findViewById(R.id.textTimestamp);
             holder.btnSelected=convertView.findViewById(R.id.btnSelected);
+            holder.btnSelected.setTag(R.drawable.ic_star);
+            convertView.setTag(holder);
         }else{
             holder =(ViewHolder) convertView.getTag();
         }
         final Message mess=messages.get(position);
-        holder.imgAvatar.setImageResource(Message.getAvatar(mess.getAddress()));
-        holder.textAddress.setText(mess.getAddress());
-        holder.textTitle.setText(mess.getTitle());
-        holder.textDescription.setText(mess.getDescription());
-        holder.textTimestamp.setText(mess.getTimestamp());
-
+        if (holder!=null) {
+            holder.imgAvatar.setImageResource(Message.getAvatar(mess.getAddress()));
+            holder.textAddress.setText(mess.getAddress());
+            holder.textTitle.setText(mess.getTitle());
+            holder.textDescription.setText(mess.getDescription());
+            holder.textTimestamp.setText(mess.getTimestamp());
+            holder.btnSelected.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageButton imgbtn=(ImageButton) v;
+                    if ((Integer) imgbtn.getTag()==R.drawable.ic_star){
+                        mess.setSelected(true);
+                        imgbtn.setImageResource(R.drawable.ic_star_selected);
+                        imgbtn.setTag(R.drawable.ic_star_selected);
+                    }
+                    else {
+                        mess.setSelected(false);
+                        imgbtn.setImageResource(R.drawable.ic_star);
+                        imgbtn.setTag(R.drawable.ic_star);
+                    }
+                }
+            });
+        }
         return convertView;
     }
     private class ViewHolder{
