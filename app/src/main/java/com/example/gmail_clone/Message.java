@@ -11,6 +11,7 @@ public class Message {
         this.id = id;
         this.address = address;
         this.title = title;
+        if (description.length()>60) description=description.substring(0,60)+"...";
         this.description = description;
         this.timestamp=timestamp;
         this.isSelected=false;
@@ -45,6 +46,7 @@ public class Message {
     }
 
     public void setDescription(String description) {
+        if (description.length()>60) description=description.substring(0,60)+"...";
         this.description = description;
     }
 
@@ -62,5 +64,39 @@ public class Message {
 
     public void setSelected(boolean selected) {
         isSelected = selected;
+    }
+    public static Integer getAvatar(String s){
+        String x=s.toLowerCase();
+        if (!s.equals("")){
+            switch (x.charAt(0)){
+                case 'a':return R.drawable.circle_a;
+                case 'b':return R.drawable.circle_b;
+                case 'c':return R.drawable.circle_c;
+                case 'd':return R.drawable.circle_d;
+                case 'e':return R.drawable.circle_e;
+                case 'f':return R.drawable.circle_f;
+                case 'g':return R.drawable.circle_g;
+                case 'h':return R.drawable.circle_h;
+                case 'i':return R.drawable.circle_i;
+                case 'j':return R.drawable.circle_j;
+                case 'k':return R.drawable.circle_k;
+                case 'l':return R.drawable.circle_l;
+                case 'm':return R.drawable.circle_m;
+                case 'n':return R.drawable.circle_n;
+                case 'o':return R.drawable.circle_o;
+                case 'p':return R.drawable.circle_p;
+                case 'q':return R.drawable.circle_q;
+                case 'r':return R.drawable.circle_r;
+                case 's':return R.drawable.circle_s;
+                case 't':return R.drawable.circle_t;
+                case 'u':return R.drawable.circle_u;
+                case 'v':return R.drawable.circle_v;
+                case 'w':return R.drawable.circle_w;
+                case 'x':return R.drawable.circle_x;
+                case 'y':return R.drawable.circle_y;
+                default:return R.drawable.circle_z;
+            }
+        }
+        return -1;
     }
 }
